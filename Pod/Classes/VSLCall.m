@@ -568,7 +568,7 @@ NSString * const VSLCallErrorDuringSetupCallNotification = @"VSLCallErrorDuringS
 }
 
 - (BOOL)decline:(NSError **)error {
-    pj_status_t status = pjsua_call_answer((int)self.callId, PJSIP_SC_BUSY_HERE, NULL, NULL);
+    pj_status_t status = pjsua_call_answer((int)self.callId, PJSIP_SC_DECLINE, NULL, NULL);
     if (status != PJ_SUCCESS) {
         if (error != NULL) {
             *error = [NSError VSLUnderlyingError:nil
